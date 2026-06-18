@@ -7,10 +7,13 @@ from pathlib import Path
 def count_figs(md_path: Path) -> int:
     text = md_path.read_text(encoding="utf-8")
     img = len(re.findall(r"!\[.*?\]\(.*?\)", text))
-    mermaid = text.count("```mermaid")
+    mermaid = len(re.findall(r"^```mermaid\s*$", text, re.M))
     return img + mermaid
 
 def main() -> int:
+    if len(sys.argv) < 2:
+        print("Usage: python check_figures.py <dir>")
+        return 1
     target = Path(sys.argv[1])
     files = list(target.rglob("*.md"))
     fail = 0
