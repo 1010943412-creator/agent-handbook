@@ -64,7 +64,7 @@ graph TB
 |---|---|
 | **L1 基础理论** | 5.1 ReAct 引用 L1.4 ReAct 论文精读;5.12 模式组合根植于 L1 Agentic 概念 |
 | **L2 上下文** | 5.9 Memory 引用 L2.6 压缩 + L2.7 RAG(读取侧互补) |
-| **L3 协议** | 5.4 Tool Use 引用 L3.1 Function Calling + L3.3 MCP;5.5 Routing 引用 L3.4 A2A |
+| **L3 协议** | 5.4 Tool Use 引用 L3.1 Function Calling + L3.3 MCP;5.5 Routing 引用 L3.5 A2A |
 | **L4 框架** | 5.7 Orchestrator-Workers 主战场是 L4.3 LangGraph;5.10 HITL 引用 L4.3 interrupt |
 | **L6 可观测** | 5.11 反模式"调试噩梦"指向 L6 trace 工具;5.8 Evaluator-Optimizer 引用 L6 LLM-as-Judge |
 | **L7 生产** | 5.10 HITL 的安全/合规意义在 L7 详细展开;5.9 Memory 持久化关联 L7 部署 |
