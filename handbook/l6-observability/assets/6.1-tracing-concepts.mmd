@@ -1,0 +1,18 @@
+flowchart TB
+    subgraph Trace[一次 Agent 执行的 Trace]
+        S1[Span 1<br/>agent.invoke<br/>CLIENT]
+        S2[Span 2<br/>llm.call<br/>INTERNAL]
+        S3[Span 3<br/>tool.search<br/>CLIENT]
+        S4[Span 4<br/>llm.call<br/>INTERNAL]
+        S5[Span 5<br/>agent.invoke<br/>CLIENT]
+    end
+    S1 --> S2
+    S2 --> S3
+    S3 --> S4
+    S4 --> S5
+    S1 -.context.-> S2
+    S2 -.context.-> S3
+
+    style S1 fill:#3B82F6,color:#fff
+    style S3 fill:#10B981,color:#fff
+    style S5 fill:#3B82F6,color:#fff
