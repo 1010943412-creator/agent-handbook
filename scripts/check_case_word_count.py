@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""验收：L8 案例字数 1200-2500。
+"""验收：L8 案例字数 1200-2500 / P9 附录字数 1200-3500。
 
 字数口径："中文字符 1 计 1，英文单词 1 计 1"。
 基于 check_word_count.py 的 count_text_units() 复用。
+
+P9 扩展：上限 2500 → 3500 支持附录（A/B/C/D 各 1500-3500 字）。
 """
 import sys
 import re
@@ -11,7 +13,7 @@ from pathlib import Path
 from check_word_count import count_text_units
 
 CASE_WORD_MIN = 1200
-CASE_WORD_MAX = 2500
+CASE_WORD_MAX = 3500  # P9 扩展：支持附录 3500 字上限
 EXCLUDE = ("INDEX", "README", "answers")
 
 
@@ -32,7 +34,7 @@ def main() -> int:
         if status == "FAIL":
             fail += 1
         print(f"[{status}] {f.relative_to(target)}: {n} 字")
-    print(f"\n共 {len(files)} 个案例 .md, 失败 {fail} 个")
+    print(f"\n共 {len(files)} 个 .md, 失败 {fail} 个")
     return 0 if fail == 0 else 1
 
 
