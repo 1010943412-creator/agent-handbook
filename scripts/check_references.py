@@ -8,6 +8,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from _reference_domains import S_A_DOMAINS, KEY_AUTHORS  # noqa: E402
 
+# P9 例外:附录 D 纯术语,spec 明确 0 引用
+REF_EXEMPT = ("appendix-d-glossary.md",)
+
 
 def count_refs(md_path: Path) -> int:
     """统计"📚 / 本节参考"小节中 S/A 级引用条数。
@@ -51,6 +54,9 @@ def main() -> int:
     fail = 0
     for f in files:
         if any(k in f.name for k in ["INDEX", "README", "answers"]):
+            continue
+        if f.name in REF_EXEMPT:
+            print(f"[SKIP] {f.relative_to(target)}: 豁免(spec 明确 0 引用)")
             continue
         n = count_refs(f)
         status = "OK" if n >= 3 else "FAIL"

@@ -14,6 +14,8 @@ CASE_FIG_MIN = 2
 EXCLUDE = ("INDEX", "README", "answers")
 # 纯表格 / 纯术语附录,spec 明确 0 图,豁免图检查
 FIG_EXEMPT = ("appendix-c-framework-matrix.md", "appendix-d-glossary.md")
+# 同时豁免引用检查(spec 明确 0 引用)
+REF_EXEMPT = ("appendix-d-glossary.md",)
 
 
 def main() -> int:
