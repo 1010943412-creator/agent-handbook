@@ -3,7 +3,9 @@
 
 基于 check_figures.py 的 count_figs() 复用，阈值改为 2。
 
-P9 例外：附录 C / 附录 D 按 spec 设计为 0 图（纯表格 / 纯术语快查）。
+P9 例外：
+- 附录 C / 附录 D 按 spec 设计为 0 图（纯表格 / 纯术语快查）
+- 3 个题库按 spec 设计为 0 图（题目 + 解析，无需 mermaid）
 """
 import sys
 import re
@@ -13,9 +15,15 @@ from check_figures import count_figs
 CASE_FIG_MIN = 2
 EXCLUDE = ("INDEX", "README", "answers")
 # 纯表格 / 纯术语附录,spec 明确 0 图,豁免图检查
-FIG_EXEMPT = ("appendix-c-framework-matrix.md", "appendix-d-glossary.md")
+FIG_EXEMPT = (
+    "appendix-c-framework-matrix.md",
+    "appendix-d-glossary.md",
+    "quiz-l1-l3.md",
+    "quiz-l4-l5.md",
+    "quiz-l6-l8.md",
+)
 # 同时豁免引用检查(spec 明确 0 引用)
-REF_EXEMPT = ("appendix-d-glossary.md",)
+REF_EXEMPT = ("appendix-d-glossary.md", "quiz-l1-l3.md", "quiz-l4-l5.md", "quiz-l6-l8.md")
 
 
 def main() -> int:

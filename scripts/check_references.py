@@ -8,8 +8,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from _reference_domains import S_A_DOMAINS, KEY_AUTHORS  # noqa: E402
 
-# P9 例外:附录 D 纯术语,spec 明确 0 引用
-REF_EXEMPT = ("appendix-d-glossary.md",)
+# P9 例外:附录 D 纯术语 + 3 个题库,spec 明确 0 引用
+REF_EXEMPT = (
+    "appendix-d-glossary.md",
+    "quiz-l1-l3.md",
+    "quiz-l4-l5.md",
+    "quiz-l6-l8.md",
+)
 
 
 def count_refs(md_path: Path) -> int:
