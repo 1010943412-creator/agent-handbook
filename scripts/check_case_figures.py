@@ -2,6 +2,8 @@
 """验收：L8 案例 ≥ 2 张图（mermaid 代码块为主，markdown 图片为辅）。
 
 基于 check_figures.py 的 count_figs() 复用，阈值改为 2。
+
+P9 例外：附录 C / 附录 D 按 spec 设计为 0 图（纯表格 / 纯术语快查）。
 """
 import sys
 import re
@@ -10,6 +12,8 @@ from check_figures import count_figs
 
 CASE_FIG_MIN = 2
 EXCLUDE = ("INDEX", "README", "answers")
+# 纯表格 / 纯术语附录,spec 明确 0 图,豁免图检查
+FIG_EXEMPT = ("appendix-c-framework-matrix.md", "appendix-d-glossary.md")
 
 
 def main() -> int:
@@ -24,6 +28,9 @@ def main() -> int:
         return 0
     fail = 0
     for f in files:
+        if f.name in FIG_EXEMPT:
+            print(f"[SKIP] {f.relative_to(target)}: 豁免(spec 明确 0 图)")
+            continue
         n = count_figs(f)
         status = "OK" if n >= CASE_FIG_MIN else "FAIL"
         if status == "FAIL":
