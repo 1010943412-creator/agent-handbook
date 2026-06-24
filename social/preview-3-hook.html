@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1440px;
+    background: #0d1b2a;
+    font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    color: #ffffff;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+  }
+  .brand {
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 4px;
+  }
+  .title {
+    font-size: 42px;
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    line-height: 1.3;
+  }
+  .quotes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+  }
+  .quote {
+    padding: 24px 28px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border-left: 4px solid #5fa8d3;
+    position: relative;
+  }
+  .quote-icon {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-size: 40px;
+    color: rgba(95, 168, 211, 0.3);
+    font-family: Georgia, serif;
+  }
+  .quote-text {
+    font-size: 20px;
+    line-height: 1.6;
+    padding-left: 40px;
+  }
+  .quote-source {
+    font-size: 13px;
+    color: #5fa8d3;
+    margin-top: 8px;
+    padding-left: 40px;
+  }
+  .cta {
+    text-align: center;
+    margin-top: 40px;
+    padding: 24px;
+    border: 2px solid #5fa8d3;
+    border-radius: 12px;
+    background: rgba(95, 168, 211, 0.1);
+  }
+  .cta-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #bee9e8;
+  }
+  .cta-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+  .footer {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="brand">AGENT 七层手册</div>
+  <div class="title">读完这 5 句话，<br>重新理解 Agent</div>
+
+  <div class="quotes">
+    <div class="quote">
+      <div class="quote-icon">"</div>
+      <div class="quote-text">KV Cache 不是"缓存越多越好"——128k 上下文的 7B 模型，单卡 KV Cache 就可能吃掉 20GB+ 显存</div>
+      <div class="quote-source">— L1.1 LLM 速通</div>
+    </div>
+    <div class="quote">
+      <div class="quote-icon">"</div>
+      <div class="quote-text">90% 的 Agent 教程都讲错了 MCP——它不是工具调用协议，而是能力发现协议</div>
+      <div class="quote-source">— L3.3 MCP 协议精读</div>
+    </div>
+    <div class="quote">
+      <div class="quote-icon">"</div>
+      <div class="quote-text">ReWOO 不比 ReAct 更好——它只是省 token，代价是牺牲了观察-推理的纠错回路</div>
+      <div class="quote-source">— L1.5 ReWOO</div>
+    </div>
+    <div class="quote">
+      <div class="quote-icon">"</div>
+      <div class="quote-text">多 Agent 不是银弹——3 个 Agent 的调试难度不是 3 倍，而是指数级增长</div>
+      <div class="quote-source">— L5.6 编排与委派</div>
+    </div>
+    <div class="quote">
+      <div class="quote-icon">"</div>
+      <div class="quote-text">Prompt 注入不是安全团队的锅——是 LLM 架构层面的根本矛盾</div>
+      <div class="quote-source">— L7.4 Prompt 注入防御</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-text">2 小时从 0 到生产级 Agent</div>
+    <div class="cta-sub">72 节正文 · 6 实战案例 · 79 道自测题</div>
+  </div>
+
+  <div class="footer">晴暖 · CC BY-NC-SA 4.0</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1440px;
+    background: #0d1b2a;
+    font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    color: #e0e0e0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: #ffffff;
+  }
+  .header .sub {
+    font-size: 16px;
+    color: #5fa8d3;
+    margin-top: 8px;
+  }
+  .toc-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    overflow: hidden;
+  }
+  .toc-section {
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 16px;
+    border-left: 4px solid;
+  }
+  .toc-section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .toc-section ul {
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #b0b0b0;
+  }
+  .toc-section li::before {
+    content: "▸ ";
+    color: rgba(255,255,255,0.3);
+  }
+  .l1 { border-color: #4cc9f0; } .l1 h2 { color: #4cc9f0; }
+  .l2 { border-color: #4895ef; } .l2 h2 { color: #4895ef; }
+  .l3 { border-color: #4361ee; } .l3 h2 { color: #4361ee; }
+  .l4 { border-color: #3f37c9; } .l4 h2 { color: #3f37c9; }
+  .l5 { border-color: #7209b7; } .l5 h2 { color: #7209b7; }
+  .l6 { border-color: #f72585; } .l6 h2 { color: #f72585; }
+  .l7 { border-color: #e63946; } .l7 h2 { color: #e63946; }
+  .l8 { border-color: #ff9f1c; } .l8 h2 { color: #ff9f1c; }
+  .footer {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>AGENT 七层手册 · 目录</h1>
+    <div class="sub">72 节正文 + 6 实战案例 + 4 附录 + 79 题自测</div>
+  </div>
+
+  <div class="toc-grid">
+    <div class="toc-section l1">
+      <h2>L1 基础理论层</h2>
+      <ul>
+        <li>LLM 速通 / KV Cache</li>
+        <li>Token 经济三角约束</li>
+        <li>Prompt 三件套</li>
+        <li>ReAct / ReWOO / P&amp;E</li>
+        <li>Self-Reflection 边界</li>
+        <li>LLM 能力雷达</li>
+      </ul>
+    </div>
+    <div class="toc-section l2">
+      <h2>L2 上下文工程层</h2>
+      <ul>
+        <li>上下文窗口物理上限</li>
+        <li>RAG 三件套</li>
+        <li>Embedding / 向量库选型</li>
+        <li>高级 RAG (HyDE/Self-RAG)</li>
+        <li>短期 / 长期记忆</li>
+        <li>Token 压缩 / 缓存策略</li>
+      </ul>
+    </div>
+    <div class="toc-section l3">
+      <h2>L3 协议与接口层</h2>
+      <ul>
+        <li>Function Calling 差异对比</li>
+        <li>JSON Schema 工具描述</li>
+        <li>MCP 协议精读 + 实战</li>
+        <li>A2A 协议 / Assistants API</li>
+        <li>Prompt Caching / SSE</li>
+        <li>协议选型决策树</li>
+      </ul>
+    </div>
+    <div class="toc-section l4">
+      <h2>L4 框架与运行时层</h2>
+      <ul>
+        <li>7 大框架全景对比</li>
+        <li>LangChain LCEL / LangGraph</li>
+        <li>LlamaIndex / AutoGen / CrewAI</li>
+        <li>OpenAI Agents SDK</li>
+        <li>Claude Agent SDK</li>
+        <li>自研 vs 用框架决策</li>
+      </ul>
+    </div>
+    <div class="toc-section l5">
+      <h2>L5 设计模式层</h2>
+      <ul>
+        <li>ReAct / Reflection 模式</li>
+        <li>Plan-and-Execute 模式</li>
+        <li>Tool Use / Routing 模式</li>
+        <li>Parallelization 模式</li>
+        <li>Orchestrator-Workers 模式</li>
+        <li>Human-in-the-Loop / 组合实战</li>
+      </ul>
+    </div>
+    <div class="toc-section l6">
+      <h2>L6 可观测与评估层</h2>
+      <ul>
+        <li>Tracing / OpenTelemetry</li>
+        <li>Langfuse / LangSmith 选型</li>
+        <li>Eval 三件套体系</li>
+        <li>LLM-as-Judge 评估</li>
+        <li>Agent 评测基准</li>
+        <li>成本 / 延迟 / A/B 实验</li>
+      </ul>
+    </div>
+    <div class="toc-section l7">
+      <h2>L7 生产化与安全层</h2>
+      <ul>
+        <li>Guardrails 三层防护</li>
+        <li>Prompt 注入攻防</li>
+        <li>工具权限最小化 / 沙箱</li>
+        <li>鉴权与会话分离</li>
+        <li>部署形态 / 容量评估</li>
+        <li>SLA 降级 / 合规审计</li>
+      </ul>
+    </div>
+    <div class="toc-section l8">
+      <h2>L8 实战案例层</h2>
+      <ul>
+        <li>企业知识库 RAG Agent</li>
+        <li>生产级 Coding Agent</li>
+        <li>数据库 Text2SQL Agent</li>
+        <li>浏览器自动化 Agent</li>
+        <li>小红书爆款笔记 Agent</li>
+        <li>电商智能客服 Agent</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">晴暖 · CC BY-NC-SA 4.0</div>
+</body>
+</html>

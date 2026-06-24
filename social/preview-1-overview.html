@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1440px;
+    background: linear-gradient(165deg, #0d1b2a 0%, #1b4965 50%, #5fa8d3 100%);
+    font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    color: #ffffff;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+  }
+  .brand {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+  }
+  .title {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: 24px;
+    color: #bee9e8;
+    margin-bottom: 40px;
+  }
+  .layers {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  .layer {
+    display: flex;
+    align-items: center;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border-left: 5px solid;
+    background: rgba(255,255,255,0.08);
+  }
+  .layer-num { font-size: 20px; font-weight: 700; width: 50px; }
+  .layer-name { font-size: 18px; flex: 1; }
+  .layer-tag {
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+  }
+  .l1 { border-color: #4cc9f0; } .l2 { border-color: #4895ef; }
+  .l3 { border-color: #4361ee; } .l4 { border-color: #3f37c9; }
+  .l5 { border-color: #7209b7; } .l6 { border-color: #f72585; }
+  .l7 { border-color: #e63946; } .l8 { border-color: #ff9f1c; }
+  .stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  .stat-val { font-size: 32px; font-weight: 900; color: #bee9e8; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .footer {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="brand">AGENT 七层手册</div>
+  <div class="title">LLM Agent 系统<br>全链路设计</div>
+  <div class="subtitle">72 节正文 + 6 实战案例 + 4 附录</div>
+
+  <div class="layers">
+    <div class="layer l1"><span class="layer-num">L1</span><span class="layer-name">基础理论层</span><span class="layer-tag">核心</span></div>
+    <div class="layer l2"><span class="layer-num">L2</span><span class="layer-name">上下文工程层</span><span class="layer-tag">核心</span></div>
+    <div class="layer l3"><span class="layer-num">L3</span><span class="layer-name">协议与接口层</span><span class="layer-tag">核心</span></div>
+    <div class="layer l4"><span class="layer-num">L4</span><span class="layer-name">框架与运行时层</span><span class="layer-tag">进阶</span></div>
+    <div class="layer l5"><span class="layer-num">L5</span><span class="layer-name">设计模式层</span><span class="layer-tag">进阶</span></div>
+    <div class="layer l6"><span class="layer-num">L6</span><span class="layer-name">可观测与评估层</span><span class="layer-tag">进阶</span></div>
+    <div class="layer l7"><span class="layer-num">L7</span><span class="layer-name">生产化与安全层</span><span class="layer-tag">专家</span></div>
+    <div class="layer l8"><span class="layer-num">L8</span><span class="layer-name">实战案例层</span><span class="layer-tag">专家</span></div>
+  </div>
+
+  <div class="stats">
+    <div><div class="stat-val">11.7万</div><div class="stat-label">字</div></div>
+    <div><div class="stat-val">95+</div><div class="stat-label">原创图</div></div>
+    <div><div class="stat-val">79</div><div class="stat-label">自测题</div></div>
+    <div><div class="stat-val">90+</div><div class="stat-label">S/A 引用</div></div>
+  </div>
+
+  <div class="footer">晴暖 · CC BY-NC-SA 4.0</div>
+</body>
+</html>
