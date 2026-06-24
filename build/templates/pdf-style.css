@@ -1,0 +1,162 @@
+/* build/templates/pdf-style.css */
+/* NOTE: xhtml2pdf does NOT support CSS3 @page margin boxes (@bottom-center etc).
+   Page footers are injected via xhtml2pdf's <pdf:nextpage> + manual footer divs. */
+
+body {
+    font-family: "Microsoft YaHei", "SimSun", "Noto Sans CJK SC", sans-serif;
+    font-size: 11pt;
+    line-height: 1.8;
+    color: #1a1a1a;
+}
+
+h1 {
+    font-size: 22pt;
+    color: #0d1b2a;
+    border-bottom: 3px solid #1b4965;
+    padding-bottom: 8px;
+    margin-top: 40px;
+}
+
+h2 {
+    font-size: 16pt;
+    color: #1b4965;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 13pt;
+    color: #5fa8d3;
+    margin-top: 20px;
+}
+
+code {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9.5pt;
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+pre {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 9pt;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+blockquote {
+    border-left: 4px solid #5fa8d3;
+    margin: 16px 0;
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+    font-size: 10pt;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #1b4965;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.cover {
+    text-align: center;
+    padding-top: 180px;
+}
+
+.cover h1 {
+    font-size: 32pt;
+    border: none;
+}
+
+.cover .subtitle {
+    font-size: 14pt;
+    color: #5fa8d3;
+    margin-top: 20px;
+}
+
+.cover .author {
+    font-size: 12pt;
+    color: #666;
+    margin-top: 40px;
+}
+
+.toc {
+}
+
+.toc h1 {
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc > ul > li {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.toc > ul > li > ul > li {
+    font-weight: normal;
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+img.mermaid-img {
+    display: block;
+    margin: 16px auto;
+    max-width: 90%;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.mermaid-placeholder {
+    text-align: center;
+    padding: 20px;
+    margin: 16px 0;
+    background-color: #f0f4f8;
+    border: 1px dashed #5fa8d3;
+    border-radius: 4px;
+    color: #666;
+}
+
+.pdf-footer {
+    text-align: center;
+    font-size: 9pt;
+    color: #888888;
+    margin-top: 20px;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+}
