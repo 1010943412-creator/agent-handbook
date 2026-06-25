@@ -8,3 +8,19 @@ build/dist/
 node_modules/
 .env
 .env.local
+
+# 构建产物 (自动生成 / 缓存)
+build/mermaid_img/
+build/.mermaid_cache/
+handbook/COMPLETE.md
+
+# 备份文件 (旧邮箱等历史快照)
+*.bak
+*.bak.pdf
+
+# 内部过程文档 (specs/plans/reviews 仅作开发记录, 不发布)
+docs/superpowers/
+
+# 引流图中间产物 (HTML, 保留最终 PNG)
+build/marketing/html/
+
