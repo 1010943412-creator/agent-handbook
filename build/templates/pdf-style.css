@@ -1,12 +1,23 @@
 /* build/templates/pdf-style.css */
 /* NOTE: xhtml2pdf does NOT support CSS3 @page margin boxes (@bottom-center etc).
-   Page footers are injected via xhtml2pdf's <pdf:nextpage> + manual footer divs. */
+   Page footers are injected via xhtml2pdf's <pdf:nextpage> + manual footer divs.
+   NOTE: xhtml2pdf hardcodes ☐ bullet on <li>; build-pdf.py converts ul/ol/li to divs. */
 
 body {
     font-family: "Microsoft YaHei", "SimSun", "Noto Sans CJK SC", sans-serif;
     font-size: 11pt;
     line-height: 1.8;
     color: #1a1a1a;
+}
+
+.mdlist, .mdlist-ol {
+    padding-left: 1.2em;
+    margin: 6px 0;
+}
+
+.mditem {
+    margin: 3px 0;
+    padding-left: 0.6em;
 }
 
 h1 {
@@ -30,7 +41,7 @@ h3 {
 }
 
 code {
-    font-family: "Consolas", "Courier New", monospace;
+    font-family: "Consolas", "FangSong", "SimSun", monospace;
     font-size: 9.5pt;
     background-color: #f0f0f0;
     padding: 1px 4px;
@@ -118,17 +129,16 @@ img {
 .toc h1 {
 }
 
-.toc ul {
-    list-style: none;
+.toc .mdlist, .toc .mdlist-ol {
     padding-left: 0;
 }
 
-.toc > ul > li {
+.toc > .mdlist > .mditem {
     margin-top: 8px;
     font-weight: bold;
 }
 
-.toc > ul > li > ul > li {
+.toc > .mdlist > .mditem > .mdlist > .mditem {
     font-weight: normal;
     margin-left: 20px;
     margin-top: 2px;
