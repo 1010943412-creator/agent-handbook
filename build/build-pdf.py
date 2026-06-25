@@ -10,12 +10,24 @@ import sys
 from pathlib import Path
 
 import markdown2
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from xhtml2pdf import pisa
+from xhtml2pdf.default import DEFAULT_FONT
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILD_DIR = ROOT / "build"
 DIST_DIR = BUILD_DIR / "dist"
 CSS_PATH = BUILD_DIR / "templates" / "pdf-style.css"
+
+SIMHEI_FONT_PATH = "C:/Windows/Fonts/simhei.ttf"
+SIMHEI_FONT_NAME = "SimHei"
+
+pdfmetrics.registerFont(TTFont(SIMHEI_FONT_NAME, SIMHEI_FONT_PATH))
+DEFAULT_FONT["microsoft yahei"] = SIMHEI_FONT_NAME
+DEFAULT_FONT["simsun"] = SIMHEI_FONT_NAME
+DEFAULT_FONT["simhei"] = SIMHEI_FONT_NAME
+DEFAULT_FONT["sans-serif"] = SIMHEI_FONT_NAME
 
 LAYERS = [
     "l1-theory", "l2-context", "l3-protocol",
