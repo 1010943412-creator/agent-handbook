@@ -22,12 +22,17 @@ CSS_PATH = BUILD_DIR / "templates" / "pdf-style.css"
 
 SIMHEI_FONT_PATH = "C:/Windows/Fonts/simhei.ttf"
 SIMHEI_FONT_NAME = "SimHei"
+FANGSONG_FONT_PATH = "C:/Windows/Fonts/simfang.ttf"
+FANGSONG_FONT_NAME = "FangSong"
 
 pdfmetrics.registerFont(TTFont(SIMHEI_FONT_NAME, SIMHEI_FONT_PATH))
+pdfmetrics.registerFont(TTFont(FANGSONG_FONT_NAME, FANGSONG_FONT_PATH))
 DEFAULT_FONT["microsoft yahei"] = SIMHEI_FONT_NAME
 DEFAULT_FONT["simsun"] = SIMHEI_FONT_NAME
 DEFAULT_FONT["simhei"] = SIMHEI_FONT_NAME
 DEFAULT_FONT["sans-serif"] = SIMHEI_FONT_NAME
+DEFAULT_FONT["fangsong"] = FANGSONG_FONT_NAME
+DEFAULT_FONT["simfang"] = FANGSONG_FONT_NAME
 
 LAYERS = [
     "l1-theory", "l2-context", "l3-protocol",
@@ -76,6 +81,8 @@ def md_to_html(md_path: Path) -> str:
     """将单个 Markdown 文件转为 HTML 片段。"""
     text = md_path.read_text(encoding="utf-8")
 
+    text = _replace_status_emoji(text)
+
     text = re.sub(
         r'```mermaid\n(.*?)```',
         r'<div class="mermaid-placeholder"><p><em>[Mermaid 图 — 请参见在线版本]</em></p></div>',
@@ -96,6 +103,31 @@ def md_to_html(md_path: Path) -> str:
             "code-friendly",
         ],
     )
+
+    html = _strip_list_bullets(html)
+    return html
+
+
+def _replace_status_emoji(text: str) -> str:
+    """把 SimHei 不支持的彩色状态 emoji 替换为几何符号。"""
+    return (
+        text.replace("🟢", "●")
+        .replace("🟡", "▲")
+        .replace("🔴", "■")
+        .replace("🔵", "●")
+        .replace("🟣", "◆")
+        .replace("🟠", "▲")
+    )
+
+
+def _strip_list_bullets(html: str) -> str:
+    """将 <ul>/<ol>/<li> 替换为 div, 避免 xhtml2pdf 硬编码渲染 ☐ bullet。"""
+    html = re.sub(r"<ul[^>]*>", '<div class="mdlist">', html)
+    html = re.sub(r"</ul>", "</div>", html)
+    html = re.sub(r"<ol[^>]*>", '<div class="mdlist-ol">', html)
+    html = re.sub(r"</ol>", "</div>", html)
+    html = re.sub(r"<li[^>]*>", '<div class="mditem">', html)
+    html = re.sub(r"</li>", "</div>", html)
     return html
 
 
