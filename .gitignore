@@ -21,6 +21,10 @@ handbook/COMPLETE.md
 # 内部过程文档 (specs/plans/reviews 仅作开发记录, 不发布)
 docs/superpowers/
 
-# 引流图中间产物 (HTML, 保留最终 PNG)
-build/marketing/html/
+# 个人本地草稿 (不入库)
+build/marketing/
+
+# 本地网络绕开工具 (个人 hack, 不入公开仓库)
+build/github-proxy.py
+build/proxy.log
 
