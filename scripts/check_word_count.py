@@ -46,7 +46,11 @@ def main() -> int:
         return 0
     fail = 0
     for f in files:
-        if "INDEX" in f.name or "README" in f.name or "answers" in f.name.lower():
+        name = f.name
+        # SKIP：索引/README/全册合并/术语表/题库 不适用节模式 800-1500 字约束
+        if "INDEX" in name or "README" in name or "answers" in name.lower():
+            continue
+        if name == "COMPLETE.md" or name.startswith("quiz-") or "glossary" in name.lower():
             continue
         n = count_text_units(f)
         status = "OK" if 800 <= n <= 1500 else "FAIL"
