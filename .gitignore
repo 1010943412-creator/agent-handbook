@@ -24,6 +24,9 @@ docs/superpowers/
 # 个人本地草稿 (不入库)
 build/marketing/
 
+# 营销素材 (本书专注内容, 不涉及营销)
+social/
+
 # 本地网络绕开工具 (个人 hack, 不入公开仓库)
 build/github-proxy.py
 build/proxy.log
